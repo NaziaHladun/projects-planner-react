@@ -1,13 +1,29 @@
-export default function InputTask({ onAdd }) {
+import { useState } from "react";
+
+function InputTask({ onAdd }) {
+  const [enteredTask, setEnteredTask] = useState("");
+
+  const handleClick = () => {
+    onAdd(enteredTask);
+    setEnteredTask("");
+  };
+
   return (
     <div className="flex items-center gap-4">
-      <input className="w-64 px-2 py-1 rounded-sm bg-stone-200" />
+      <input
+        type="text"
+        className="w-64 px-2 py-1 rounded-sm bg-stone-200"
+        value={enteredTask}
+        onChange={(event) => setEnteredTask(event.target.value)}
+      />
       <button
         className="text-stone-700 hover:text-stone-950"
-        onClick={() => onAdd()}
+        onClick={handleClick}
       >
         Add Task
       </button>
     </div>
   );
 }
+
+export default InputTask;
