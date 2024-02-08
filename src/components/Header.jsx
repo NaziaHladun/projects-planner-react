@@ -13,7 +13,7 @@ export default function Header({ project, date, onDelete }) {
         </button>
       </div>
       <p className="text-stone-400 mb-4">{date}</p>
-      <p className="mt-8">{project.description}</p>
+      <p className="mt-8 whitespace-pre-wrap">{project.description}</p>
     </header>
   );
 }
