@@ -91,13 +91,16 @@ function App() {
   const selectedProject = projectInfo.project.find(
     (project) => project.id === projectInfo.selectedProjectId
   );
+  const filteredTasks = projectInfo.tasks.filter(
+    (task) => task.projectId === projectInfo.selectedProjectId
+  );
   let content = (
     <ProjectPage
       project={selectedProject}
       onDelete={handleProjectDelete}
       onAddTask={handleAddTask}
       onDeleteTask={handleDeleteTask}
-      tasks={projectInfo.tasks}
+      tasks={filteredTasks}
     />
   );
 
